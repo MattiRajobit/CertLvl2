@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.7.5 on win32)" generated="20220322 10:35:59.381" rpa="true" schemaversion="2">
+<suite id="s1" name="Consumer" source="c:\Users\matti\Documents\RBCORP\example-web-store-work-items\consumer.robot">
+<test id="s1-t1" name="Extra Processing">
+<kw name="Get Work Item Payload" library="RPA.Robocorp.WorkItems">
+<var>${payload}</var>
+<doc>Get the full JSON payload for a work item.</doc>
+<msg timestamp="20220322 10:36:00.204" level="INFO">${payload} = {'Name': 'Zoya Roche', 'Zip': 3013, 'Items': ['Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie'], 'new Name': 'success'}</msg>
+<status status="PASS" starttime="20220322 10:36:00.204" endtime="20220322 10:36:00.210"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${name}</var>
+<arg>${payload}[Name]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220322 10:36:00.211" level="INFO">${name} = Zoya Roche</msg>
+<status status="PASS" starttime="20220322 10:36:00.211" endtime="20220322 10:36:00.211"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${zip}</var>
+<arg>${payload}[Zip]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220322 10:36:00.212" level="INFO">${zip} = 3013</msg>
+<status status="PASS" starttime="20220322 10:36:00.212" endtime="20220322 10:36:00.212"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${items}</var>
+<arg>${payload}[Items]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220322 10:36:00.213" level="INFO">${items} = ['Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie']</msg>
+<status status="PASS" starttime="20220322 10:36:00.213" endtime="20220322 10:36:00.213"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Extra processing for: ${name} zip: ${zip} items: ${items}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220322 10:36:00.214" level="INFO">Extra processing for: Zoya Roche zip: 3013 items: ['Sauce Labs Bolt T-Shirt', 'Sauce Labs Fleece Jacket', 'Sauce Labs Onesie']</msg>
+<status status="PASS" starttime="20220322 10:36:00.214" endtime="20220322 10:36:00.214"/>
+</kw>
+<kw name="Get Work Item File" library="RPA.Robocorp.WorkItems">
+<var>${file_path2}</var>
+<arg>picture</arg>
+<doc>Get attached file from work item to disk.
+Returns the absolute path to the created file.</doc>
+<msg timestamp="20220322 10:36:00.217" level="FAIL">FileNotFoundError: No such file: picture</msg>
+<status status="FAIL" starttime="20220322 10:36:00.214" endtime="20220322 10:36:00.217"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${str1}</var>
+<arg>&lt;img src="</arg>
+<arg>${file_path2}</arg>
+<arg>&gt;"</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20220322 10:36:00.220" endtime="20220322 10:36:00.221"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${file_path2}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220322 10:36:00.222" endtime="20220322 10:36:00.222"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${str1}</arg>
+<arg>INFO</arg>
+<arg>True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220322 10:36:00.223" endtime="20220322 10:36:00.223"/>
+</kw>
+<status status="FAIL" starttime="20220322 10:36:00.203" endtime="20220322 10:36:00.224">FileNotFoundError: No such file: picture</status>
+</test>
+<status status="FAIL" starttime="20220322 10:35:59.386" endtime="20220322 10:36:00.227"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Consumer">Consumer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
